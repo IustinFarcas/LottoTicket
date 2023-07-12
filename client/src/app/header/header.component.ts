@@ -16,7 +16,7 @@ export class HeaderComponent {
   onSaveData() {
     this.dataStorageService.storeTickets().subscribe({
       next: () =>
-        this.toastr.success('Your tickets was saved successfully', '', {
+        this.toastr.success('Tickets have been successfully saved', '', {
           positionClass: 'toast-top-center',
         }),
       error: () =>
@@ -29,7 +29,7 @@ export class HeaderComponent {
   onFetchData() {
     this.dataStorageService.fetchTickets().subscribe({
       next: () =>
-        this.toastr.success('Your tickets was fetched successfully', '', {
+        this.toastr.success('Tickets have been successfully fetched', '', {
           positionClass: 'toast-top-center',
         }),
       error: () =>
