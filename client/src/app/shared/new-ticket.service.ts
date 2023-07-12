@@ -35,9 +35,14 @@ export class NewTicketService {
     const generatedNumbers: number[] = [];
     const min = 1;
     const max = 49;
-    for (let index = 1; index <= 6; index++) {
-      generatedNumbers.push(Math.floor(Math.random() * (max - min + 1)) + min);
+    for (let index = 0; index < 6; index++) {
+      let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      while (generatedNumbers.includes(randomNumber)) {
+        randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      generatedNumbers.push(randomNumber);
     }
+
     return generatedNumbers;
   }
 

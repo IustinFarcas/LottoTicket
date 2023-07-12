@@ -5,4 +5,6 @@
     class="grid-container-col-7-row-7"
   ></app-box>
 </div>
-<h3>Superzahl: {{ ticket.superzahl }}</h3>
+<h3 *ngIf="ticket.superzahl && ticket.superzahl !== 0">
+  Superzahl: {{ ticket.superzahl }}
+</h3>
