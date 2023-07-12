@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-2">
+    <div class="input-group">
+      <button class="btn btn-primary" (click)="onBackClicked()">Back</button>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="input-group">
+      <div class="input-group-text">No. of Boxes</div>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="numberOfBoxes"
+        (change)="onNrOfBoxesValueChanged($event)"
+        min="0"
+        max="10"
+      />
+    </div>
+  </div>
+
+  <div class="col-3">
+    <div class="input-group">
+      <div class="input-group-text">Superzahl</div>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="superzahl"
+        (change)="onSuperzahlValueChanged($event)"
+        min="0"
+        max="10"
+      />
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="input-group">
+      <button
+        type="button"
+        class="btn btn-primary form-control"
+        [disabled]="numberOfBoxes == 0"
+        (click)="onDrawTicketClicked()"
+      >
+        Draw ticket
+      </button>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="input-group">
+      <button
+        type="button"
+        class="btn btn-primary form-control"
+        [disabled]="!isDrawn || numberOfBoxes == 0"
+        (click)="onAddToTicketsList()"
+      >
+        Add to List
+      </button>
+    </div>
+  </div>
+</div>
+
+<br />
+<div class="row" *ngIf="numberOfBoxes > 0">
+  <div class="col col-sm-12" style="border-color: rgb(204, 197, 199)">
+    <app-ticket-detail [ticket]="ticket"></app-ticket-detail>
+  </div>
+</div>
+
+<div class="row" *ngIf="superzahl && superzahl !== 0">
+  <h4>Superzahl: {{ superzahl }}</h4>
+</div>

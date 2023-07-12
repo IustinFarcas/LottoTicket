@@ -1,0 +1,8 @@
+<app-box-number
+  *ngFor="let boxNumber of box.boxNumbers"
+  [boxNumber]="boxNumber"
+  [ngClass]="{
+    'numberbox-not-checked': !boxNumber.isChecked,
+    'numberbox-checked': boxNumber.isChecked
+  }"
+></app-box-number>

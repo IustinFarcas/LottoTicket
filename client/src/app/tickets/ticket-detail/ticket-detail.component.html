@@ -1,0 +1,8 @@
+<div class="grid-container-col-5">
+  <app-box
+    *ngFor="let box of ticket.boxes"
+    [box]="box"
+    class="grid-container-col-7-row-7"
+  ></app-box>
+</div>
+<h3>Superzahl: {{ ticket.superzahl }}</h3>

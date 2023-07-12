@@ -17,17 +17,19 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
+        public async Task<ActionResult<IEnumerable<Ticket>>> Get()
         {
-            var tickets = await contex.Ticket.ToListAsync();
+            var tickets = await contex.Ticket.Include(t => t.Boxes).ThenInclude(b => b.BoxNumbers).ToListAsync();
             return Ok(tickets);
         }
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Ticket>> GetTicket(long id)
-        {
-            var ticket = await contex.Ticket.Where(t => t.Id == id).Include(t => t.Boxes).ThenInclude(b => b.Numbers).FirstOrDefaultAsync();
-            return Ok(ticket);
-        }
 
+        [HttpPut]
+        public async Task<ActionResult> Put([FromBody] List<Ticket> tickets)
+        {
+            await contex.Ticket.AddRangeAsync(tickets);
+            contex.SaveChanges();
+            return Ok();
+
+        }
     }
 }

@@ -1,0 +1,22 @@
+.numberbox-not-checked {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: 1px solid rgb(240, 7, 7);
+  margin-right: 0.5px;
+  margin-top: 0.5px;
+  margin-bottom: 0.5px;
+  margin-left: 0.5px;
+  background-color: beige;
+}
+.numberbox-checked {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: 1px solid rgb(240, 7, 7);
+  margin-right: 0.5px;
+  margin-top: 0.5px;
+  margin-bottom: 0.5px;
+  margin-left: 0.5px;
+  background-color: greenyellow;
+}
